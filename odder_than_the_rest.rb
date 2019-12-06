@@ -1,3 +1,6 @@
+require "test/unit/assertions"
+include Test::Unit::Assertions
+
 def oddest(arr)
 	if arr == [] then return nil end
 	oddness_counter = arr.map { |val| oddness_calculator(val)}
@@ -22,3 +25,7 @@ def oddness_calculator(val)
 		return 1 + oddness_calculator((val - 1) / 2)
 	end
 end
+
+assert_equal oddest([1, 2]), 1
+assert_equal oddest([1, 3]), 3
+assert_equal oddest([1, 5]), nil
